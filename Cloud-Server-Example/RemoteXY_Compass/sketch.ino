@@ -34,7 +34,7 @@ struct {
 #pragma pack(pop)
 
 #define PIN 27 // Pin connected to the NeoPixel ring
-#define NUMPIXELS 17 // Number of LEDs in the NeoPixel ring
+#define NUMPIXELS 16 // Number of LEDs in the NeoPixel ring
 
 Adafruit_NeoPixel pixels(NUMPIXELS, PIN, NEO_GRB + NEO_KHZ800);
 
@@ -49,7 +49,7 @@ void loop() {
   RemoteXY_Handler();
   
   // Scale compass value to the range of LED indices
-  int ledIndex = map(RemoteXY.compass_01, 0, 359, 0, NUMPIXELS - 1);
+  int ledIndex = map(RemoteXY.compass_01, 0, 359, 0, NUMPIXELS);
   
   // Update the LEDs
   updateLEDs(ledIndex);
